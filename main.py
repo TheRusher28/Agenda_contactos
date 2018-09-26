@@ -30,10 +30,14 @@ def add_contact(contacts):
     contact = [{'name': input('Nombre: ')}, {'phone': input('Telefono: ')}, {'email': input('Email: ')}]
     contacts.append(contact)
     print('Se ha añadido un nuevo contacto')
+    print(contacts)
     sleep(2)
 
 def remove_contact(contacts):
-    print('Eliminando')
+    print('Eliminar contacto')
+    removed_values = contacts.pop()
+    print(removed_values)
+    print(contacts)
 
 def search_contact(contacts):
     print('Buscando')
@@ -48,11 +52,11 @@ def main():
         if action == ADD_CONTACT:
             add_contact(contacts)
         elif action == REMOVE_CONTACT:
-            remove_contact()
+            remove_contact(contacts)
         elif action == SEARCH_CONTACT:
-            search_contact()
+            search_contact(contacts)
         elif action == EXPORT_CONTACT:
-            export_contact()
+            export_contact(contacts)
 
         action = show_menu()
 
