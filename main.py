@@ -27,7 +27,11 @@ def show_menu():
 
 def add_contact(contacts):
     print('Añadir contacto')
-    contact = [{'name': input('Nombre: ')}, {'phone': input('Telefono: ')}, {'email': input('Email: ')}]
+    contact = {
+        "name": input("Nombre: "),
+        "phone": input("Teléfono: "),
+        "email": input("Email: ")
+    }
     contacts.append(contact)
     print('Se ha añadido un nuevo contacto')
     print(contacts)
@@ -40,7 +44,17 @@ def remove_contact(contacts):
     print(contacts)
 
 def search_contact(contacts):
-    print('Buscando')
+    print('Buscar contacto')
+    search_term = input('Introduce el nombre del contacto o parte de el')
+    found_contacts = []
+    for contact in contacts:
+        if contact["name"].find(search_term) >= 0:
+            found_contacts.append(contact)
+            print('Tengo las siguientes coincidencias', contact['name'])
+
+    return found_contacts
+
+
 
 def export_contact(contacts):
     print('Exportando')
